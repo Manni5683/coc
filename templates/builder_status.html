@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builder Status - Clash Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .content {
+            margin: 20px;
+            text-align: center;
+        }
+        table {
+            margin: 20px auto;
+            width: 80%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Builder Status</h1>
+    </header>
+    <div class="content">
+        <!-- Button to add a new builder -->
+        <button onclick="window.location.href='/add-builder'">Add Builder</button>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Builder Name</th>
+                    <th>Status</th>
+                    <th>Upgrade Time</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for builder in builders %}
+                <tr>
+                    <td>{{ builder.name }}</td>
+                    <td>{{ builder.status }}</td>
+                    <td>{{ builder.upgrade_time }}</td>
+                    <td>{{ builder.cost }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <button onclick="window.location.href='/'">Back to Home</button>
+    </div>
+</body>
+</html>
+
